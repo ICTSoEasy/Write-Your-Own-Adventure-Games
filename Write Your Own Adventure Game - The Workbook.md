@@ -57,4 +57,51 @@ You will want paper and a pencil for this. Preferably a **big** bit of paper.
 So, the exemplar;
 -	Firstly I had to come up with a decision. I’ve decided I’m on a pirate ship, so I made the decision to have two decks.
 -	So I drew a ship with two decks. You can make these as fancy or as basic as you like – the design will never be seen in the game but you might give a map to your users.
-![simple deck view](Images/Ship - basic decks.png)
+
+![simple deck view](Images/ships_basic_decks.png)
+
+I split the two ship decks into sections that linked together and gave each one a name. The name isn’t essential, but it helps us know what we are talking about and can be the basis of the descriptions when we start programming the rooms.
+
+![divided into rooms](Images/ships_room_plan.png)
+
+Each room has a name (I number them on the picture for clarity - this will form the room ID number later on):
+1: Starboard Bows
+2: Port Bows
+3: Starboard Forebeam
+4: Starboard Foredeck
+5: Port Foredeck
+6: Port Forebeam
+7: Starboard Beam
+8: Starboard Midships
+9: Port Midships
+10: Port Beam
+11: Starboard Quarter
+12: Starboard Aft Deck
+13: Port Aft Deck
+14: Port Quarter
+15: Poop Deck
+16: Starboard Forecastle
+17: Port Forecastle
+18: Starboard Fore Hold
+19: Port Fore Hold
+20: Starbord Aft Hold
+21: Port Aft Hold
+22: Captain's Cabin
+(No doubt a shippy-person will be along soon to tell me I got this all wrong - but it doesn't really matter!)
+
+Feel free to change things as you go along. I've changed this about five times just in writing!
+
+I plotted a route I wanted the player to have to take to get to the end point. This is because I want my game to end by the player getting from the Poop Deck to the anchor (in the Starbord Bows) and dropping it into the sea. If my intent was to have them collect every object or gain a set amount of points, I would have to adjust this step to ensure they can get everywhere needed. This is not to say they won’t have to visit other routes on the way – I just wanted to make sure that they would be able to get where they needed.
+
+![main route](Images/ships_main_route.png)
+
+I added extra pathways between rooms. These are paths which may lead to dead ends, lead the player in circles, or whatever. It’s what makes the game explorable rather than just following a set map. I used single headed arrows for one-way routes and double-headed arrows where the player can move in both directions. I also added double heads on to the routes I planned earlier. At this point you may even start thinking about some puzzles the player may need to solve and add notes on to the map while you’re at it. I’ve added a trap that will cause the player to fall into the sea and added a secret room to make this happen. You don’t need to be exhaustive – it’s an iterative process!
+
+![main route](Images/ships_routes_and_traps.png)
+
+A: Is a one-way climb down to the rudder (room 23). If the player climbs down, they then slip, fall in the sea, and the game is over.
+B: Is a wall which can be knocked over (probably by something we find). This will enable the player to enter a series of rooms which ends up back at room 11.
+C: is a one-way exit to room 9, which means they *have* to solve the problem of the wall in B.
+D: is a one-way exit that just means the player has to go around in circles.
+
+If you are just following the examples, have a good look at the maps and make sure you understand it. If you are creating your own adventure game as well, go ahead and design your own map. That should take you to the end of this session!
