@@ -65,28 +65,28 @@ I split the two ship decks into sections that linked together and gave each one 
 ![divided into rooms](Images/ships_room_plan.png)
 
 Each room has a name (I number them on the picture for clarity - this will form the room ID number later on):
-1: Starboard Bows
-2: Port Bows
-3: Starboard Forebeam
-4: Starboard Foredeck
-5: Port Foredeck
-6: Port Forebeam
-7: Starboard Beam
-8: Starboard Midships
-9: Port Midships
-10: Port Beam
-11: Starboard Quarter
-12: Starboard Aft Deck
-13: Port Aft Deck
-14: Port Quarter
-15: Poop Deck
-16: Starboard Forecastle
-17: Port Forecastle
-18: Starboard Fore Hold
-19: Port Fore Hold
-20: Starbord Aft Hold
-21: Port Aft Hold
-22: Captain's Cabin
+1. Starboard Bows
+2. Port Bows
+3. Starboard Forebeam
+4. Starboard Foredeck
+5. Port Foredeck
+6. Port Forebeam
+7. Starboard Beam
+8. Starboard Midships
+9. Port Midships
+10. Port Beam
+11. Starboard Quarter
+12. Starboard Aft Deck
+13. Port Aft Deck
+14. Port Quarter
+15. Poop Deck
+16. Starboard Forecastle
+17. Port Forecastle
+18. Starboard Fore Hold
+19. Port Fore Hold
+20. Starboard Aft Hold
+21. Port Aft Hold
+22. Captain's Cabin
 (No doubt a shippy-person will be along soon to tell me I got this all wrong - but it doesn't really matter!)
 
 Feel free to change things as you go along. I've changed this about five times just in writing!
@@ -140,6 +140,84 @@ Some of these things will happen when we first create the room object.
 -	Set a list of exits (even if it’s empty)
 -	Set a list of what is in the room (even if it’s empty)
 
-Based on this description, I have created a template file for the room. You can download this from our website. 
+Based on this description, I have created a template file for the room. You can download this from our website. We've called it `ROOM.py`. We will fill this in with code as we go along.
 
 There are comments about what is happening in the code – don’t worry if you don’t fully understand it all, remember this is about fun not about understanding everything! Most of the methods have ‘pass’ written underneath them. This is because it is a template so we don’t want to actually write all this code yet, but we want it to be there as a kind of placeholder. If you leave it empty, Python gets cross. So we write pass as a kind of ‘carry on, nothing to see here, as you were…’
+
+Now what we need to do is have a 'game' - which will be another class - to hold all of these rooms. In fact, the game will have other things as well such as a status (games can be in play or not in play), and the rooms in a list, and it will also have to hold any items that we haven't yet put into rooms.
+
+We will need to be able to add an item to the items list, move the item to a room or from a room to the 'holding' area. We will need to be able to add a room.
+
+We will need to be able to check if we are in play or not, and change the play status. We have again created a template file, mainly with `pass` in the methods, called `GAME.py` for you to have a look at.
+
+Now that we have created some classes, we can go about creating a main program. We will:
+- give the program access to the game and room classes (well, the templates for now)
+- create a game object
+- as we have programmed *some* of the game code, we will test our game object status methods.
+- we will create a room and look at the short description
+- we will change the short description and then look at it again
+
+If you want to just skip to see this done, just download the `main1.py` file from week 2. But it would be a better idea to work through it, really...
+
+Giving the program access to the classes means using `import`commands:
+```py
+from GAME import Game
+from ROOM import Room
+```
+
+Creating an instance is also simple:
+```py
+game = Game()
+```
+So we have called our Game object game - note the use of capitalisation to differentiate?
+
+To test the game status, I've told `game` to show us it's status, then called `flipPlayStatus` and tol it to print it out again.
+
+```py
+print('Is the game running?')
+print(game.getPlayStatus())
+print('Flip it around!')
+game.flipPlayStatus()
+print('Is the game running now?')
+print(game.getPlayStatus())
+```
+
+To create a Room, we create a new room object (not the capitalisation again?) with default information, and then ask it to output it's short description.
+```py
+#Create a room (we used room 1 for an example, and it currently does not
+# contain anything)
+room = Room(1,'Startboard Bows',None,None)
+#Look at the room's short description
+print(room.getShortDesc())
+```
+
+And then we can tell the room to change it's short description and output it again:
+```py
+#Whoops - we made a typo! Change the short description and look again
+room.setShortDesc('Starboard Bows')
+print(room.getShortDesc())
+```
+
+What we need to be able to do now is add rooms to the game itself. To be able to test this there is a 'helper' method in `GAME.py` which prints out all of the rooms we have added. The player won't be able to use this but it helps us!
+
+We have created a copy of the main program called `main2.py` and removed the bits we just included for testing. We have now added the room to game and then asked game to print out the rooms:
+```py
+room = Room(1,'Starboard Bows',None,None)
+game.addRoom(room)
+```
+
+Although we can also combine this to a single line:
+```py
+game.addRoom(Room(2,'Port Bows',None,None))
+```
+
+And you can just call:
+```py
+game.listRooms()
+```
+to see what rooms the game includes so far.
+
+> Activity for you!
+  Go ahead and add all of the rooms into the game. If you run out of time you can use our version at `main3.py` but typing it yourself is always a better idea.
+
+## Week 3

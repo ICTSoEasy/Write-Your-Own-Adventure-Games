@@ -17,9 +17,14 @@ class Room:
         self.contains = contains
         self.longDesc = ''
 
+    #This will look at itself and give us back the ID
+    def getId(self):
+        return self.id #just give back whatever the ID is
+
+
     #This will look at itself and give us back the short description
     def getShortDesc(self):
-        pass
+        return self.shortDesc #just give back whatever the current short description is
 
     #This will take the new description we give it and set this as the object's short description
     def setShortDesc(self,desc):
