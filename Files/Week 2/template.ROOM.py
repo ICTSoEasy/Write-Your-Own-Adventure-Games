@@ -8,7 +8,7 @@ class Room:
     # - exits will be a list of exits from the room
     # - contains will be a list of the things contained in the room
     # - longDesc will be the longer description which we will only see if we actually look around.
-    #   as this is not strictly neccesary, we start it as nothing and then set it later if we 
+    #   as this is not strictly neccesary, we start it as nothing and then set it later if we
     #   so wish.
     def __init__(self, id, shortDesc, exits, contains):
         self.id = id

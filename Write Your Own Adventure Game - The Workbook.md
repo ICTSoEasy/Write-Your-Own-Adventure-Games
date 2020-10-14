@@ -99,9 +99,47 @@ I added extra pathways between rooms. These are paths which may lead to dead end
 
 ![main route](Images/ships_routes_and_traps.png)
 
-A: Is a one-way climb down to the rudder (room 23). If the player climbs down, they then slip, fall in the sea, and the game is over.
-B: Is a wall which can be knocked over (probably by something we find). This will enable the player to enter a series of rooms which ends up back at room 11.
-C: is a one-way exit to room 9, which means they *have* to solve the problem of the wall in B.
-D: is a one-way exit that just means the player has to go around in circles.
+- A: Is a one-way climb down to the rudder (room 23). If the player climbs down, they then slip, fall in the sea, and the game is over.
+- B: Is a wall which can be knocked over (probably by something we find). This will enable the player to enter a series of rooms which ends up back at room 11.
+- C: is a one-way exit to room 9, which means they *have* to solve the problem of the wall in B.
+- D: is a one-way exit that just means the player has to go around in circles.
 
 If you are just following the examples, have a good look at the maps and make sure you understand it. If you are creating your own adventure game as well, go ahead and design your own map. That should take you to the end of this session!
+
+## Week 2: Programming the Game Map
+We need to start programming now. I know, it’s early days in the game design world, but we need to have some **fun**.
+
+What’s first? Well, a little bit of housekeeping. You need a folder to keep your code in. So, go ahead and create your folder. I’m going to call mine “Drop the Hook” since it’s all about pirates and dropping the anchor.
+
+All of our files are going to be kept inside this folder. If you are also creating your own adventure game, don’t forget to create a folder for that as well.
+
+We are going to use a type of programming called **object-oriented programming**. In this type of programming we design ‘things’ and we call these designs classes. Each class will have its own file. A class is a collection of code which defines what one of these things will know about itself (it’s **properties**) and what one of these things can do (it’s **methods**). Remember though, these classes are just **designs**. Later on we will **instantiate** these classes into **objects** – we bring them to life! (sort of!). By the way, you’re going to get confused about objects in programming terms and objects in terms of ‘things in the game’. Sorry!
+
+So we are designing rooms. Let’s think about rooms. What do we *know* about rooms?
+-	Every room has an ID number we have given it
+-	Every room has a name – a short description
+-	Every room is going to want a longer description if we look around it
+-	Every room is going to have some exits – so we need a list of exits
+-	Every room might have some things in it – so we need a list of what it contains.
+
+What do we need rooms to be able to do? Do note that we may need to change these a bit as we go through the development cycle so it doesn’t matter if we’re not perfect first time. Don’t tell your teacher we said this though – teachers hate agile development!
+-	Get and set the short description
+-	Get and set the long description
+-	Get a list of exits
+-	Check if an exit exists
+-	Add an exit (we may break a wall down to make a new one)
+-	Remove an exit (something could fall over blocking an exit)
+-	Get a list of what is in the room
+-	Check if something is in the room
+-	Remove something from the room
+-	Put something in to the room
+
+Some of these things will happen when we first create the room object.
+-	Set an ID (this will happen only once so I have only included it here)
+-	Set the short description
+-	Set a list of exits (even if it’s empty)
+-	Set a list of what is in the room (even if it’s empty)
+
+Based on this description, I have created a template file for the room. You can download this from our website. 
+
+There are comments about what is happening in the code – don’t worry if you don’t fully understand it all, remember this is about fun not about understanding everything! Most of the methods have ‘pass’ written underneath them. This is because it is a template so we don’t want to actually write all this code yet, but we want it to be there as a kind of placeholder. If you leave it empty, Python gets cross. So we write pass as a kind of ‘carry on, nothing to see here, as you were…’
