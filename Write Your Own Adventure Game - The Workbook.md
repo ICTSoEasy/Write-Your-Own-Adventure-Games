@@ -220,4 +220,22 @@ to see what rooms the game includes so far.
 > Activity for you!
   Go ahead and add all of the rooms into the game. If you run out of time you can use our version at `main3.py` but typing it yourself is always a better idea.
 
-## Week 3
+## Week 3: Making a room more than an empty box
+We need to add a bit of flavour to the rooms by adding some descriptions, adding exits, and adding some way of testing how the different rooms look.
+
+We will start with the same `GAME.py` and `ROOM.py` files from last week, and will use the same `main` file - you can copy `Week 3/main1.py` if you need a working starting point - this is the same as our `main3.py` from `Week 2`.
+
+Firstly, the GAME needs access to be able to add a long description to a room. `GAME` will need the room number, and the description to add, and will call the `setLongDesc` function of the relevant room. We can add this to `GAME.py`:
+```py
+#This will add a long description to a given room
+def addRoomLongDescription(self,room,desc):
+    self.rooms[room].setLongDesc(desc)
+```
+
+and while we are at it, we can edit `ROOM.py` to allow us to access the long description later on:
+```py
+#This will look at itself and give us back the long description
+def getLongDesc(self):
+    return self.longDesc #Just give back whatever the current long desc is
+```
+We can now call `game.addRoomLongDescription()` with the room number and the descriptions as parameters. Go ahead and put these descriptions in to your `main` file. Be creative, this is a lot of what makes these games fun. You can see ours in `Week 3/main2.py` but you'd be better off adding them in yourself!
